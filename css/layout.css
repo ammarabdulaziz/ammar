@@ -549,8 +549,9 @@
 	}
 
 	.card-started .profile .title {
-		font-size: 28px;
-		line-height: 28px;
+		font-size: 28px !important;
+		line-height: 28px !important;
+		margin-bottom: 4px !important;
 	}
 
 }

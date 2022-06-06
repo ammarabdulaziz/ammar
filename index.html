@@ -192,9 +192,9 @@
 							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
 								<div class="info-list">
 									<ul>
-										<li><strong style="background: none; padding-left: 0;">Age</strong> 22</li>
-										<li><strong style="background: none; padding-left: 0;">Nationality</strong> Indian</li>
-										<li><strong style="background: none; padding-left: 0;">Residence</strong> Doha, Qatar</li>
+										<li><strong style="background: none; padding-left: 0;">Age</strong><span id="age">22</span></li>
+										<li><strong style="background: none; padding-left: 0;">Nationality</strong>Indian</li>
+										<li><strong style="background: none; padding-left: 0;">Residence</strong>Doha, Qatar</li>
 									</ul>
 								</div>
 							</div>
@@ -465,14 +465,20 @@
 	<script type="text/javascript">
 		function sendEmail() {
 			sessionStorage.setItem('alert',true);
-        	window.location.reload();
-		}
-		$(function () {
-			if ( sessionStorage.getItem('alert') ) {
-                alert( "Error ! Your email was not sent. Please try again or contact via ammarabz10@gmail.com" );
-                sessionStorage.removeItem('alert');
-            }
+			window.location.reload();
+			}
+			$(function () {
+				if ( sessionStorage.getItem('alert') ) {
+				alert( "Error ! Your email was not sent. Please try again or contact via ammarabz10@gmail.com" );
+				sessionStorage.removeItem('alert');
+			    }
 		});
+		function getAge(d1, d2){
+		    d2 = d2 || new Date();
+		    var diff = d2.getTime() - d1.getTime();
+		    return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+		}
+		document.getElementById('age').innerHTML = getAge(new Date(1999, 02, 29));
 	</script>
 	
 </body>
